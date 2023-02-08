@@ -16,6 +16,16 @@ function getCommentsByPostId(postId) {
 
 function updateCommentBody(id, body) {
   //update comment body
+  comments = comments.map((comment) => {
+    if(comment.id === id){
+      return{
+        ...comment,
+        ...body,
+      };
+    }
+    return comment;
+  });
+
 }
 
 function deleteCommentById(id) {
