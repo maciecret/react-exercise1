@@ -25,10 +25,28 @@ function addPost(post) {
 
 function updatePostTitle(id, title) {
   //update post title
+
+  posts = posts.map((post) => {
+    if(post.id === id){
+      return{
+        ...post,
+        ...title
+      }
+    }
+  })
 }
 
 function updatePostBody(id, body) {
   //update post body
+
+  posts = posts.map((post) => {
+    if(post.id === id){
+      return{
+        ...post,
+        ...body,
+      }
+    }
+  })
 }
 
 function updatePost(id, post) {
