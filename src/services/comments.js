@@ -5,10 +5,13 @@ let comments = [...data];
 
 function getCommentById(id) {
   //get comment by id
+  return comments.find((comment) => comment.id === id);
 }
 
 function getCommentsByPostId(postId) {
   //get comments by post id
+  return comments.find((comment) => comment.postId === postId);
+
 }
 
 function updateCommentBody(id, body) {

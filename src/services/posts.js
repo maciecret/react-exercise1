@@ -5,14 +5,17 @@ let posts = [...data];
 
 function getPosts() {
   //get all posts
+  return [...posts];
 }
 
 function getPostsByUser(userId) {
   //get all posts by userId
+  return posts.find((post) => post.userId === userId);
 }
 
 function getPostById(id) {
   //get a single post by id
+  return posts.find((post) => post.userId === userId);
 }
 
 function addPost(post) {
