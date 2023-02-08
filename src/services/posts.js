@@ -55,8 +55,20 @@ function updatePost(id, post) {
 
 function deletePostBy(id) {
   //delete post by id
+
+  return posts.filter((post) => post.id != id)
+
+
 }
 
 function deletePostsByUserId(userId) {
   //delete all posts of a user by given userId
+  return posts.filter((post) => post.userId != userId)
+}
+
+function generateId(posts){
+  posts.forEach(post => {
+    post.id  = i+1;
+    
+  });
 }
