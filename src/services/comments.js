@@ -30,9 +30,19 @@ function updateCommentBody(id, body) {
 
 function deleteCommentById(id) {
   //delete comment by id
+  return comments.filter((comment) => comment.id != id)
+  
 }
 
 function addComment(comment) {
+  return comments.push(comment)
   //add comment to comments array
   // use generateId function and pass comments array as the argument to generate a unique id.
+}
+
+function generateId(comments){
+  comments.forEach(comment => {
+    comment.id  = i+1;
+    
+  });
 }
