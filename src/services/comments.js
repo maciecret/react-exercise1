@@ -1,4 +1,5 @@
 import { comments as data } from "../data/comments";
+import { generateId } from "../utils";
 
 //private
 let comments = [...data];
@@ -35,14 +36,12 @@ function deleteCommentById(id) {
 }
 
 function addComment(comment) {
-  return comments.push(comment)
+  
   //add comment to comments array
   // use generateId function and pass comments array as the argument to generate a unique id.
+
+  const commentId = generateId(comments)
+
+  comments = [...comments,{...comments, id: commentId}]
 }
 
-function generateId(comments){
-  comments.forEach(comment => {
-    comment.id  = i+1;
-    
-  });
-}

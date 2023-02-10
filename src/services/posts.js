@@ -1,4 +1,5 @@
 import { posts as data } from "../data/posts";
+import { generateId } from "../utils";
 
 //private
 let posts = [...data];
@@ -21,6 +22,9 @@ function getPostById(id) {
 function addPost(post) {
   //add new post to BEGINNING of posts array
   // use generateId function and pass posts array as the argument to generate a unique id.
+
+  const postId = generateId(posts)
+  posts = [...posts,{...post, id: postId}]
 }
 
 function updatePostTitle(id, title) {
@@ -51,6 +55,17 @@ function updatePostBody(id, body) {
 
 function updatePost(id, post) {
   //update post title and or body (imagine a form where user is allowed to edit both title and post but may also choose to only edit one of them)
+  posts = posts.map((post) => {
+    if(post.id === id){
+      return{
+        ...post,
+        ...body,
+        ...title,
+      }
+    }
+
+
+  })
 }
 
 function deletePostBy(id) {
@@ -66,9 +81,3 @@ function deletePostsByUserId(userId) {
   return posts.filter((post) => post.userId != userId)
 }
 
-function generateId(posts){
-  posts.forEach(post => {
-    post.id  = i+1;
-    
-  });
-}
