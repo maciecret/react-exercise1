@@ -11,7 +11,7 @@ function getPosts() {
 
 function getPostsByUser(userId) {
   //get all posts by userId
-  return posts.find((post) => post.userId === userId);
+  return posts.filter((post) => post.userId === userId);
 }
 
 function getPostById(id) {
@@ -34,9 +34,10 @@ function updatePostTitle(id, title) {
     if(post.id === id){
       return{
         ...post,
-        ...title
+        title,
       }
     }
+    return post
   })
 }
 
